@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "User Memory Schema",
+  "description": "Defines the structure for storing persistent user data, identity, and preferences.",
+  "type": "object",
+  "properties": {
+    "identity": {
+      "type": "object",
+      "description": "Core identification details about the user.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The primary name or alias to call the user."
+        },
+        "role": {
+          "type": "string",
+          "description": "Profession or role of the user (optional)."
+        }
+      },
+      "required": ["name"]
+    },
+    "preferences": {
+      "type": "object",
+      "description": "User settings and habits.",
+      "properties": {
+        "communication_style": {
+          "type": "string",
+          "enum": ["concise", "verbose", "humorous", "formal"],
+          "default": "concise"
+        },
+        "format_preference": {
+          "type": "string",
+          "enum": ["markdown", "plain_text", "code_blocks_only"],
+          "default": "markdown"
+        }
+      }
+    },
+    "context": {
+      "type": "array",
+      "description": "List of topics or current tasks the user is focused on.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "topic": { "type": "string" },
+          "status": { "type": "string" }
+        }
+      }
+    }
+  }
+}

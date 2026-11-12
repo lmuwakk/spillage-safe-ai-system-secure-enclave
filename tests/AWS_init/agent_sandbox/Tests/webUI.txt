@@ -1,0 +1,52 @@
+# Project: AI Agent Web Interface
+
+## Role & Goal
+Act as an expert Full Stack Developer. Your goal is to design and code a complete web interface for an existing AI agent backend (built in Python using `ollama`) that is currently located at ~/agent/agent.py. The interface must allow users to interact with the agent naturally via chat while securely triggering specific tools available on the server. I.e. if the user says "create a file named "hello.txt"" the chatbot should do this and inform the user that it has done this.
+
+## 1. Backend Architecture (Python/FastAPI)
+Create a FastAPI application that serves as the bridge between the frontend and the agent's capabilities.
+
+**Key Requirements:**
+-   **Endpoints**: You must expose the following functions from the `agent.py` script as API endpoints:
+    -   `/api/run`: Handles chat messages, passes them to the LLM (ollama), processes tool calls (if generated), executes them using the agent's tools, and returns the final response.
+-   **Tool Integration**: The backend must programmatically access and execute these specific Python functions based on arguments sent by the frontend:
+    1.  `write_file(filename: str, content: str)` - Creates/overwrites files in the sandbox.
+    2.  `read_file(filename: str)` - Reads text/python files from the sandbox.
+    3.  `run_command(command: str)` - Executes terminal commands (subprocess).
+    4.  `fetch_url(url: str)` - Fetches content from a URL.
+-   **Security**: Implement path validation to ensure `write_file` and `read_file` stay within the designated `agent_sandbox` directory to prevent directory traversal attacks.
+
+## 2. Frontend Design (UI/UX)
+The visual aesthetic must be professional, sleek, and modern.
+
+**Visual Style:**
+-   **Theme**: Dark Mode / Cyberpunk Minimalist.
+-   **Background**: Deep Black (`#0a0a0a` or `#121212`).
+-   **Primary Accents**: Light Blue (`#4da6ff`, `#00f3ff`, or similar cyan/neon blue tones).
+-   **Text/Accents**: White and light gray for readability.
+-   **Typography**: Clean sans-serif font (e.g., Inter, Roboto, or system-ui).
+
+**Layout & Features:**
+-   **Chat Container**: A centered or right-aligned chat window showing conversation history.
+    -   Messages from the "User" should be on the right (Light Blue background, White text).
+    -   Messages from the "AI" should be on the left (Dark/Gray background, White text).
+-   **Input Area**: A sleek input field at the bottom with a prominent "Send" button.
+-   **System Logs (Optional but recommended)**: A collapsible side panel or bottom ticker that displays raw tool executions (e.g., "Running command...", "File saved...") to visualize what the agent is doing under the hood.
+
+## 3. Implementation Steps
+1.  **Setup**: Initialize a project folder with `main.py` (backend) and an `index.html` (frontend).
+2.  **Backend Logic**:
+    -   Implement the tool execution logic using Python's `subprocess` for commands and standard file I/O for read/write operations.
+    -   Integrate `ollama` to handle the LLM interaction.
+3.  **Frontend Interface**:
+    -   Use HTML5, CSS3 (Flexbox/Grid), and Vanilla JavaScript.
+    -   Style components using the defined color palette (Black/Light Blue/White).
+4.  **Interactivity**:
+    -   When the user submits a chat message, send it to the backend via `fetch`.
+    -   Handle streaming responses or final text results dynamically in the DOM without reloading the page.
+
+## Deliverables
+Provide the complete code for:
+1.  `main.py` (The FastAPI server with all tool wrappers).
+2.  `index.html`, `style.css`, and `script.js` (The frontend interface).
+3.  Instructions on how to run the environment (installing dependencies like `fastapi`, `uvicorn`, `ollama`, etc.).

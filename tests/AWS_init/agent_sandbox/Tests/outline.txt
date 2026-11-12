@@ -1,0 +1,42 @@
+PROJECT: Command-line expense tracker
+
+GOAL
+A single-file Python program (Python 3.10+) that lets a user record
+expenses and see spending summaries from the terminal.
+
+COMMANDS (use argparse subcommands)
+1. add     - add an expense. Arguments: amount (float), category (str),
+              optional --note (str), optional --date (YYYY-MM-DD,
+              defaults to today).
+2. list    - show all expenses in a table, newest first. Optional
+              --category filter.
+3. summary - show total spending per category and a grand total.
+              Optional --month YYYY-MM to limit to one month.
+4. delete  - delete an expense by its ID number.
+
+DATA STORAGE
+- Store expenses in a JSON file called expenses.json in the same
+  folder as the program.
+- Each expense has: id (integer, auto-incrementing), date, amount,
+  category, note.
+- Create the file automatically if it does not exist.
+
+DISPLAY
+- Use the "rich" library to print tables and colored messages.
+- Amounts should be shown with two decimal places and a $ sign.
+
+ERROR HANDLING
+- Reject negative or zero amounts with a clear message.
+- Reject malformed dates.
+- Print a friendly error if the user tries to delete an ID that
+  does not exist.
+- Handle a corrupted or empty expenses.json without crashing.
+
+CODE QUALITY
+- Organize the code into small functions with docstrings.
+- Use an if __name__ == "__main__": entry point.
+- Add brief comments where the logic is not obvious.
+
+DELIVERABLE
+Save the finished program as program.py. After writing it, tell the
+user which pip packages to install and show an example of each command.

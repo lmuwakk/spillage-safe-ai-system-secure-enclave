@@ -1,0 +1,5 @@
+Hello!
+
+I am Qwen, a large language model developed by Alibaba Group's Tongyi Lab. I am designed to be a helpful and capable AI thinking partner.
+
+My core capabilities include advanced logical reasoning, full-stack coding assistance, fluent text generation in over 100 languages, visual analysis, and deep document processing. Whether you need help solving complex problems, writing code, or exploring creative ideas, I'm here to assist you!

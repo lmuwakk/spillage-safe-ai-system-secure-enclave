@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web AI Interface</title>
+    
+    <!-- Link to Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts: Inter (UI) and JetBrains Mono (Terminal/Insights) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="main-layout">
+    <!-- Chat Interface -->
+    <div id="chat-container">
+        <div id="chat-history">
+            <!-- Messages will be dynamically appended here by script.js -->
+            <!-- Initial Message Placeholder -->
+            <div class="message assistant">System online. Awaiting input.</div>
+        </div>
+        
+        <div id="input-area">
+            <textarea id="user-input" placeholder="Enter command or query..." rows="1"></textarea>
+            <button id="send-btn">Send</button>
+            <button id="new-chat-btn">New Chat</button>
+        </div>
+    </div>
+
+    <!-- Real-time Insight Panel -->
+    <div id="insight-panel">
+        <div id="insight-header">System Activity Monitor</div>
+        <div id="insight-content">
+            <!-- Thought blocks, tool usage, and metrics will appear here -->
+        </div>
+    </div>
+</div>
+
+<!-- Main Logic Script -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

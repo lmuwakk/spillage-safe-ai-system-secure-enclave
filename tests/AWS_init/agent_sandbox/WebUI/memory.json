@@ -1,0 +1,13 @@
+{
+  "identity": {
+    "name": "Thomas",
+    "role": null
+  },
+  "preferences": {
+    "communication_style": "concise",
+    "format_preference": "markdown"
+  },
+  "context": [],
+  "favorite_color": "light blue",
+  "favorite_number": "12"
+}
